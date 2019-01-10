@@ -21,16 +21,11 @@ export default {
   props:['propsdata'],
   methods:{
     removeTodo:function(todoItem, index){
-      console.log(todoItem, index);
-      localStorage.removeItem(todoItem);
-      this.todoItems.splice(index,1); // 해당index를 지운다.
+      this.$emit('removeItem',todoItem, index);
+      //removeItem 이벤트를 발생시켜서 todoItem, index 인자를 보낸다.
     },
     toggleComplete:function(todoItem, index){
-      todoItem.completed=!todoItem.completed;
-
-      //로컬스토리지 데이터를 갱신
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+      this.$emit('toggleItem',todoItem, index);
     }
   },
   //1
