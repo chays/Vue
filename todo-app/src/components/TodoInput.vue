@@ -29,7 +29,7 @@ export default {
     }
   },
   methods:{
-    addTodo:function(){
+    addTodo(){
       //console.log(this.newTodoItem);
       //저장하는 로직
       if(this.newTodoItem !==''){  
@@ -41,12 +41,12 @@ export default {
       }
       
     },
-    clearInput:function(){
+    clearInput(){
       this.newTodoItem="";
     }
   },
   components:{
-    Modal :Modal
+    Modal
   }
 }
 </script>
