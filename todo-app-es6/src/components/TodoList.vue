@@ -1,45 +1,39 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.item" class="shadow">
-        <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted:todoItem.completed}" v-on:click="toggleComplete(todoItem, index)"></i>
+      <li v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item" class="shadow">
+        <i class="fas fa-check checkBtn" v-bind:class="{checkBtnCompleted:todoItem.completed}" v-on:click="toggleComplete({todoItem, index})"></i>
         <span v-bind:class="{textCompleted:todoItem.completed}">{{ todoItem.item }}</span>
-        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)"><i class="fas fa-trash-alt"></i></span>
+        <span class="removeBtn" v-on:click="removeTodo({todoItem, index})"><i class="fas fa-trash-alt"></i></span>
       </li>
     </transition-group>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  //2
-  // data:function(){
-  //   return{
-  //     todoItems:[]
-  //   }
-  // },
-  props:['propsdata'],
   methods:{
-    removeTodo:function(todoItem, index){
-      this.$emit('removeItem',todoItem, index);
-      //removeItem 이벤트를 발생시켜서 todoItem, index 인자를 보낸다.
-    },
-    toggleComplete:function(todoItem, index){
-      this.$emit('toggleItem',todoItem, index);
-    }
-  },
-  //1
-  // created:function(){
-  //   if(localStorage.length>0){
-  //     for(var i=0;i<localStorage.length;i++){
-  //       if(localStorage.key(i) !=='loglevel:webpack-dev-server'){
-  //         //this.todoItems.push(localStorage.key(i));
-  //        this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                  
-  //       }
-  //     }
-  //   }
-  // }
+
+    ...mapMutations({
+      removeTodo:'removeOneItem',
+      toggleComplete:'toggleOneItem'
+    }),
+
+    // removeTodo(todoItem, index){     
+    //   this.$store.commit('removeOneItem', {todoItem,index});
+    // },
+    // toggleComplete(todoItem, index){
+    //   this.$store.commit('toggleOneItem',{todoItem,index});
+    // }
+  },  
+  computed:{
+    // todoItems(){
+    //   return this.$store.getters.storedTodoItems
+    // }
+    ...mapGetters(['storedTodoItems'])
+  }
 }
 </script>
 
