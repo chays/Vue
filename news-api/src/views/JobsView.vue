@@ -1,32 +1,46 @@
 <template>
   <div>
-    <div v-for="job in jobs">{{ job.title }}</div>
+    <ul class="news-list">
+      <li v-for="job in this.$store.state.jobs" class="post">
+        <div class="points">{{job.points || 0 }}</div>
+        <a v-bind:href='job.url' class="news-title">{{ job.title }}</a>
+        <small class="link-text">{{ job.time_ago}} {{ job.domain }}</small>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { fetchJobsList } from '../api/index.js'
-
 export default {
-  data(){
-    return {
-      jobs:[]
-    }
-  },
   created(){
-    var vm=this;
-    fetchJobsList()
-      .then(function(response) {
-        console.log(response);
-        vm.jobs=response.data;
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+   this.$store.dispatch('FETCH_JOBS');
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+.news-list{
+  margin:0;
+  padding:0;
+}
+.post{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid #eee;
+}
+.points{
+  width:80px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#42b883
+}
+.news-title{
+  margin:0;
+}
+.link-text{
+  color:#888
+}
 </style>

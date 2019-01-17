@@ -30,14 +30,14 @@ export const router = new VueRouter({
       component:AskView
     },
     {
-      path:'/user',
+      path:'/user/:id',
       component:UserView
     },
     {
-      path:'item',
+      path:'/item/:id',
       component:ItemView
-    }
-   
+    },
+    
   ]
 });
 
