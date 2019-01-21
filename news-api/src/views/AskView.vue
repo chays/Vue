@@ -1,67 +1,46 @@
 <template>
   <div>
-    <ul class="news-list">
+    <list-item></list-item>
+    <!-- <ul class="news-list">
       <li v-for="item in fetchedAsk" class="post">
         <div class="points">{{item.points}}</div>
         <router-link v-bind:to="`/item/${ item.id }`" class="news-title">{{ item.title }}</router-link>
         <small class="link-text">{{item.time_ago}}{{item.user}}</small>
       </li>
-    </ul>    
+    </ul>     -->
   </div>
 </template>
 
 <script>
+import ListItem from '../components/ListItem.vue'
+import bus from '../utils/bus.js'
 
-import { mapState, mapGetters } from "vuex"
+
+//import { mapState, mapGetters } from "vuex"
 
 export default {
-  computed:{
-
-    // ...mapGetters({
-    //     askItem:'fetchedAsk'
-    // })
-
-    ...mapGetters(['fetchedAsk'])
-
-    // #2
-    // ...mapState({
-    //     fetchedAsk:state => state.asks
-    // }),
-
-    // #1
-    // asks(){
-    //   return this.$store.state.asks;
-    // }
+  components:{
+    ListItem,
   },
-  created(){
-    this.$store.dispatch('FETCH_ASKS');
-  }
+  // computed:{
+  //   ...mapGetters(['fetchedAsk'])
+  // },
+ 
+ created(){
+   
+    bus.$emit('start:spinner');
+    setTimeout(() => {
+      this.$store.dispatch('FETCH_ASKS')
+        .then(() =>{
+          console.log('fetched');
+          bus.$emit('end:spinner');
+        })
+        .catch((error) => {
+          console.log(error)
+        });        
+    }, 3000)
+   
+ }
 }
 </script>
 
-<style scoped>
-.news-list{
-  margin:0;
-  padding:0;
-}
-.post{
-  list-style:none;
-  display:flex;
-  align-items:center;
-  border-bottom:1px solid #eee;
-}
-.points{
-  width:80px;
-  height:60px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#42b883
-}
-.news-title{
-  margin:0;
-}
-.link-text{
-  color:#888
-}
-</style>

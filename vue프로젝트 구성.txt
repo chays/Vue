@@ -1,0 +1,58 @@
+Vue 3.x
+
+Vue CLI2 제거
+$ npm r -g vue-cli
+
+
+Vue CLI3 전역 설치
+$ npm i -g @vue/cli
+$ vue --version
+3.0.0
+
+프로젝트 생성
+$ vue create hello-vue-cli
+
+개발서버 구동
+$ cd hello-vue-cli
+$ npm run serve
+
+플러그인 추가
+$ vue add router  //routes/index.js
+$ vue add vuex    //store.js
+
+src/main.js
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+
+ Vue.config.productionTip = false
+
+ new Vue({
+   router,
+   store,
+   render: h => h(App)
+ }).$mount('#app')
+
+사용빌드
+npm run build
+
+Vue 2.x
+
+Vue CLI 글로발 설치
+npm i -g vue-cli
+
+프로젝트 생성
+vue init <template-name> <project-name>
+vue init webpack-simple app
+
+실행
+cd app
+npm i 
+npm run dev
+
+
+
+
+
+
