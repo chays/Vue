@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body, div{
+      margin:0;
+      padding:0;
+    }
+    .box-wrap{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      border:1px solid lime;
+      
+    }
+    .box{
+      position: relative;
+      width:23%;
+      height: 391px;
+      border-radius: 7px;
+      box-shadow: 8px 8px 5px rgba(00, 00, 00, .1);      
+    }
+
+    .box1{
+      background: #fff url(bg_webzin1.png) no-repeat 50% 50%;
+      background-size: cover;
+    }
+    .box2{
+      background: #fff url(bg_webzin2.png) no-repeat 50% 50%;
+      background-size: cover;
+    }
+    /* .animated{
+      top:200px;
+      -webkit-transform: translate3d(0,0,0);
+       transition-delay:5ms;-webkit-transition-delay:50ms
+    } */
+
+    .show-on-scroll { visibility: hidden; }
+    .show-on-scroll.shown { visibility: visible; }
+    #container{
+      height:2000px;
+    }
+
+    @keyframes slideInUp {
+      from {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+  </style>
+  <script>  
+  window.addEventListener('scroll', function() {
+    var el = document.querySelector('.show-on-scroll');
+    
+    if(window.scrollY >= 400) el.classList.add('shown');
+    else el.classList.remove('shown');
+  });
+  </script>
+</head>
+<body>
+<div id="container">
+  <div class="box-wrap slideInUp animated">
+    <div class="box box1"></div>  
+    <div class="box box2"></div>  
+    <div class="box box1"></div>  
+    <div class="box box2"></div>  
+  </div>
+  <div class="show-on-scroll">Hello</div>
+
+  <div class="box slideInUp animated">
+    boxtest
+  </div>
+</div>
+
+
+</body>
+</html>
