@@ -1,0 +1,25 @@
+@import url(../fonts/notosanskr.css);
+@import url(../fonts/notosanssc.css);
+@import url(../fonts/notosansjp.css);
+
+$mColor:#000;
+$sColor:#999;
+$hColor:#ff0;
+
+html:lang(ko) body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html:lang(en) body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html:lang(cn) body {
+    font-weight: 100;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+html:lang(jp) body {
+    font-weight: 100;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+

@@ -1,4 +1,4 @@
-Vue 3.x
+### Vue 3.x
 
 Vue CLI2 제거
 $ npm r -g vue-cli
@@ -17,8 +17,8 @@ $ cd hello-vue-cli
 $ npm run serve
 
 플러그인 추가
-$ vue add router  //routes/index.js
-$ vue add vuex    //store.js
+$ vue add router  // router.js
+$ vue add vuex    // store.js
 
 src/main.js
 import Vue from 'vue'
@@ -37,7 +37,43 @@ import store from './store'
 사용빌드
 npm run build
 
-Vue 2.x
+vue add i18n
+vue add @vue/unit-jest
+
+cd
+# bootstrap-vue 설치
+$ vue add bootstrap-vue
+Use babel/polyfill? y  
+
+--> 직접추가시 
+npm install --save-dev @babel/polyfill
+
+1. main.js 최상단 
+	import '@babel/polyfill'
+
+2 . babel.config.js 
+module.exports = {
+  "presets": [
+    [
+      "@vue/app",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
+  ]
+}
+
+
+# sass전처리기
+$ npm install -D sass-loader node-sass
+$ npm install sass-loader node-sass --save-dev
+
+import './styles/my-styles.scss'
+
+
+
+
+### Vue 2.x
 
 Vue CLI 글로발 설치
 npm i -g vue-cli
@@ -53,6 +89,7 @@ npm run dev
 
 
 
+babel/polyfill
 
 
 
