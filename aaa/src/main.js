@@ -6,8 +6,10 @@ import router from './router';
 import store from './store';
 import './styles/my-style.scss';
 
+import ChartPlugin from './plugins/ChartPlugin.js';
 
 Vue.config.productionTip = false;
+Vue.use(ChartPlugin);
 
 new Vue({
   router,
