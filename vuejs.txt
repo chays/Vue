@@ -1,0 +1,14 @@
+created
+
+beforeMount
+
+mounted
+
+destroyed
+
+
+v-if
+v-for
+v-bind
+v-on
+v-model

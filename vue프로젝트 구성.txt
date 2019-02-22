@@ -2,6 +2,7 @@
 
 Vue CLI2 제거
 $ npm r -g vue-cli
+$ npm uninstall vue-cli -g
 
 
 Vue CLI3 전역 설치
@@ -40,10 +41,17 @@ npm run build
 vue add i18n
 vue add @vue/unit-jest
 
-cd
+
 # bootstrap-vue 설치
 $ vue add bootstrap-vue
 Use babel/polyfill? y  
+
+     src/plugins/bootstrap-vue.js
+     babel.config.js
+     package-lock.json
+     package.json
+     src/main.js
+
 
 --> 직접추가시 
 npm install --save-dev @babel/polyfill
@@ -78,6 +86,7 @@ import './styles/my-styles.scss'
 Vue CLI 글로발 설치
 npm i -g vue-cli
 
+
 프로젝트 생성
 vue init <template-name> <project-name>
 vue init webpack-simple app
@@ -87,9 +96,54 @@ cd app
 npm i 
 npm run dev
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+### ES6 설명
+https://babeljs.io/docs/en/learn/#ecmascript-2015-features-modules
+
+### Vue.js 개발자를 위한 ES6 입문서
+https://joshua1988.github.io/es6-online-book/guide.html
+
+### Vue Reactivity System
+https://vuejs.org/v2/guide/reactivity.html
+
+### Render Functions & JSX
+https://vuejs.org/v2/guide/render-function.html
+
+### Vuex 와 State
+https://joshua1988.github.io/web-development/vuejs/vuejs-tutorial-for-beginner/
+https://joshua1988.github.io/web-development/vuejs/vuex-start/
+
+### Server-Side Rendering
+https://vuejs.org/v2/guide/ssr.html
+
+
+### render function 의 간소화
+// #1
+render: function (createElement) {
+    return createElement(App);
+}
+
+// #2
+render (createElement) {
+    return createElement(App);
+}
+
+// #3
+render (h){
+    return h(App);
+}
+
+// #4
+// 참고 : h는 hyperscript의 약자로 HTML 구조를 생성하는 스크립트를 의미. Virtual DOM 구현에서 관행적으로 사용
+render: h => h(App);
+
+
+
 
 
 babel/polyfill
 
-
+node.js  
+npm 
 

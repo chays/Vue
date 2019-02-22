@@ -25,7 +25,6 @@ export default {
     this.$store.dispatch('FETCH_USER',userName);
   }
   
-
 }
 </script>
 
