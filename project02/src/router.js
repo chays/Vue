@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from './views/Home.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   mode: 'history',
@@ -22,24 +22,19 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/business',
-      name: 'business',
-      component: () => import('./views/Business.vue')
+      path:'/trans',
+      name:'transitionGroup',
+      component:() => import('./views/transitionGroup.vue')
     },
     {
-      path:'/news',
-      name:'news',
-      component: () => import('./views/NewsCenter.vue')
+      path:'/transiton',
+      name:'transiton',
+      component:() => import('./views/transition.vue')
     },
     {
-      path:'/jobs',
-      name:'jobs',
-      component: () => import('./views/Recruit.vue')
-    },
-    {
-      path:'/asks',
-      name:'asks',
-      component: () => import('./views/Tokens.vue')
+      path:'/lists',
+      name:'addlist',
+      component: () => import('./views/addToList.vue')
     }
   ]
-});
+})

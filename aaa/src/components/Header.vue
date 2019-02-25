@@ -8,6 +8,9 @@
                     <b-nav-item to="/">Home</b-nav-item> |
                     <b-nav-item to="/about">About</b-nav-item> |
                     <b-nav-item to="/business">Business</b-nav-item>
+                    <b-nav-item to="/news">News</b-nav-item>
+                    <b-nav-item to="/jobs">Jobs</b-nav-item>
+                    <b-nav-item to="/asks">Asks</b-nav-item>
                 </b-navbar-nav>
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item-dropdown text="Lang" right>

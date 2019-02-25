@@ -1,12 +1,29 @@
 <template>
     <div>
-        Tokens
+        <ul>
+            <li v-for="(ask, index) in asks" :key="index">{{ask.title}}</li>
+        </ul>
     </div>
 </template>
 
 <script>
-export default {
+import { fetchAsksList } from '../api/index.js';
 
+export default {
+    data(){
+        return{
+            asks:[]
+        }
+    },
+    beforeMount(){
+        var vm=this;
+        fetchAsksList()
+        .then(function(response){
+            console.log(response);
+            vm.asks=response.data;
+        })
+        .catch( error => console.log(error));
+    }
 }
 </script>
 

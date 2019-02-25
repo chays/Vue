@@ -1,0 +1,53 @@
+
+
+ - Hoisting (호이스팅) : 어는 시점에서 변수를 선언 하든 이것을 처리하는 과정에서 최 상단으로 변수를 끌어 올리는 현상이다.
+
+var 사용시 발생 -
+
+ES6+  -- error 처리됨 호이스팅 발생하지 않음
+let : 변하는 값
+const : 변하지 않는 값(고정)
+
+ - scope (스코프) : 변수를 사용할 수 있는 범위
+
+ES5 함수단위 - 
+
+ES6 블록단위
+
+ - closure(클로저) : 이미 생명 주지가 끝난 외부 함수의 변수를 참조하는 함수를 의미한다.
+ - 변수를 재활용성은 좋으나 프로그램 종료때까지 메모리에 남아 메모리 낭비
+
+ES6
+const를 기본으로 사용한다.
+변경될 수 있는 변수는 let을 사용한다.
+const를 사용하더라도 배열과 오프젝트의 값을 변경하는 것은 가능하다.
+
+method : 
+startsWith
+endsWidth
+includes
+
+for of
+
+...aaa  //spread operator
+
+arguments  // from 
+
+newArray=Array.from(arguments);
+
+filter
+
+includes;
+
+.has()
+.delete()
+
+new Set();
+
+
+pageYOffset
+
+$(window).scrollTop() == window.pageYOffset
+
+$(window).height()    == window.innerHeight
+

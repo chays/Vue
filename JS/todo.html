@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{margin:0;padding:0}
+  body{padding:200px}
+
+  ul{
+    overflow: hidden;
+  }
+  ul>li{
+   float:left;
+   width:20%;  
+   list-style:none;
+  }
+  ul>li>a{
+    display:block;
+    width:90%;
+    height: 280px;
+    margin:0 auto;
+    background: #fff;
+    border-radius: 25px;
+    border: 1px solid #7d7d96;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    box-sizing: border-box;
+    text-align:center;
+  }
+
+.parallaxCon{
+  opacity:0;transform: translate3d(0, 50px, 0);transition:.3s ease-in-out;
+}
+
+.parallaxCon.pa-on{
+  opacity:1;transform: translate3d(0, 0, 0);
+}
+
+.section{height:2500px}
+  </style>
+</head>
+<body>
+<div class="section">
+
+  <ul>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+  </ul>
+
+</div>    
+<script>
+
+
+// if ( window.addEventListener ) { // W3C DOM 지원 브라우저 
+//   window.addEventListener("load", start, false);
+// } else if ( window.attachEvent ) { // W3C DO M 지원 브라우저 외(ex:MSDOM 지원 브라우저 IE)
+//   window.attachEvent("onload", start);
+// } else {
+//   window.onload = start;
+// }
+
+//HTML과 script가 로드된 시점에 발생하는 이벤트이다.
+//onload 이벤트보다 먼저 발생한다. 빠른 실행속도가 필요할때 적합하다.
+//ie8이하에서는 지원하지 않는다.
+
+window.addEventListener('DOMContentLoaded', function(){ 
+  start();
+});
+
+
+// //jQuery ready
+// $(document).ready(function(){ 
+//   //실행코드
+// });
+
+
+
+function start()
+{
+    
+     let lis= document.querySelectorAll('li');
+
+     for(let i=0;i<lis.length;i++){
+       lis[i].classList.add('parallaxCon');
+     }
+
+     window.onscroll=logScroll;
+
+     function logScroll(e){
+
+      for(let i=0;i<lis.length;i++){
+        lis[i].classList.add('pa-on');
+      }
+
+     }
+
+    
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>
