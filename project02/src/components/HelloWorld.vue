@@ -1,37 +1,21 @@
 <template>
   <div class="hello">
      <transition-group tag="ul" name="list">
-        <li v-for="(item,index) in items" :key="index">{{item.title}}</li>
+        <li v-for="(item,index) in this.$store.state.items" :key="index">{{item.title}}</li>
      </transition-group>
   </div>
 </template>
 
 <script>
-import {fetchNewsList } from '../api/index.js';
+
 
 
 export default {
   
-  data(){
-    return{
-      items:[]
-    }
-  },
 
-  beforeMount(){
-    var vm=this;
-    //axios
-    //.get("https://api.hnpwa.com/v0/ask/1.json")
-    //.then(({data}) => (this.items=data))
-    fetchNewsList()
-    .then(function(response){
-      console.log(response);
-      vm.items=response.data
-    })
-    //.catch(error => console.log(error));
-    .catch(function(){
-
-    })
+  created(){
+    
+    this.$store.dispatch('FETCH_NEWS');
     
   }
 }
