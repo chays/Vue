@@ -20,15 +20,10 @@ export default {
 
     },
     beforeMount(){
-        var vm=this;
+        
         fetchNewsList()
-        .then(function(response){
-            //console.log(response)
-            vm.news=response.data
-        })
-        .catch(function(error){
-            console.log(error)
-        })
+        .then( response => this.news=response.data)
+        .catch(error => console.log(error));
     },
     mounted(){
 

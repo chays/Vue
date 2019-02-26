@@ -23,18 +23,38 @@
     }
 
     function fetchData(){
-      var result = [];
+      //1.
+       var result = [];
 
+       //2. 
        callAjax()
        .then(function(data){
          console.log('데이터 호출결과',data)
          result=data;
          console.log('함수결과', result);
-       })
-
-      
+       })      
     }
     fetchData();
+
+    new Promise(function(resolve,reject){
+      setTimeout(function(){
+        resolve(1);
+      },2000)
+    })
+    .then(function(result){
+      console.log(result);
+      return result+10;
+    })
+    .then(function(result){
+      console.log(result);
+      return result +20;
+    })
+    .then(function(result){
+      console.log(result);
+    })
+
+
+
   </script>
 </body>
 </html>

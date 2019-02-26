@@ -1,3 +1,8 @@
+1. 프로젝트 설치 vue create my-project
+2. 라우터 구성  vue i vue-router --save
+
+
+
 ### Vue 3.x
 
 Vue CLI2 제거
