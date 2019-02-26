@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(user,index) in this.$store.state.news" :key="index">{{user.title}}</li>
+      <li v-for="(user,index) in this.$store.state.news" :key="index">
+        <a v-bind:href="user.url" target="_blank">{{user.title}}</a>
+        </li>
     </ul>
   </div>
 </template>
