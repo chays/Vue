@@ -1,21 +1,16 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(job,index) in this.$store.state.jobs" :key="index">{{job.title}}</li>
-    </ul>
+    <list-item></list-item>    
   </div>
 </template>
 
 <script>
+import ListItem from '../components/ListItem.vue';
 
 export default {
-
-  created(){ 
-    this.$store.dispatch('FETCH_JOBS');
-  }
+  components:{
+    ListItem,
+  } 
 }
 </script>
 
-<style>
-
-</style>
